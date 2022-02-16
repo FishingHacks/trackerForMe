@@ -1,0 +1,1 @@
+const {Client} = require("discord.js");const {id, token, channel} = require("./config");const c = new Client({intents: ["GUILDS","GUILD_MEMBERS","GUILD_MESSAGES","GUILD_PRESENCES"]});c.on("presenceUpdate", (_, p) => {if(p.user.id == id || p.userId == id)c.channels.cache.get(channel).send(p.user.username + " is now " + p.status);});c.login(token)
